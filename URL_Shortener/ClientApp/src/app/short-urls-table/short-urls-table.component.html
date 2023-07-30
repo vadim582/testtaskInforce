@@ -1,0 +1,27 @@
+<h2>Short URLs Table</h2>
+
+<form (ngSubmit)="onAddUrlSubmit()">
+  <label for="originalUrl">Original URL:</label>
+  <input type="text" id="originalUrl" [(ngModel)]="newUrl" name="originalUrl" required>
+  <button type="submit">Shorten URL</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>Original URL</th>
+      <th>Short URL</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let url of shortUrls">
+      <td>{{ url.originalUrl }}</td>
+      <td><a href="{{ url.shortenedUrl }}" target="_blank">{{ url.shortenedUrl }}</a></td>
+      <td>
+        <button (click)="deleteShortUrl(url.id)">Delete</button>
+        <button (click)="viewShortUrlDetails(url.id)">Details</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

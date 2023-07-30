@@ -1,0 +1,12 @@
+<h2>Short URL Info</h2>
+
+<div *ngIf="urlInfo">
+  <p><strong>Original URL:</strong> {{ urlInfo.originalUrl }}</p>
+  <p><strong>Short URL:</strong> <a href="{{ urlInfo.shortenedUrl }}" target="_blank">{{ urlInfo.shortenedUrl }}</a></p>
+  <p><strong>Created Date:</strong> {{ urlInfo.createdDate | date }}</p>
+  <p><strong>Created By:</strong> {{ urlInfo.createdBy }}</p>
+</div>
+
+<div *ngIf="!urlInfo">
+  <p>Loading...</p>
+</div>
